@@ -1,7 +1,9 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import { Switch, Route } from "react-router-dom";
+import Home from "./Home/Home";
+import Study from "./Home/Study"
 
 function Layout() {
   return (
@@ -10,7 +12,11 @@ function Layout() {
       <div className="container">
         {/* TODO: Implement the screen starting here */}
         <Switch>
-          <Route exact path>
+          <Route exact path="/" >
+            <Home />
+          </Route>
+          <Route path="/decks/:deckId/study">
+            <Study />
           </Route>
           <Route>
             <NotFound />
