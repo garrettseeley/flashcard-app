@@ -7,14 +7,19 @@ export default function Card({ cards = [] }) {
   const history = useHistory();
   const { deckId } = useParams();
 
-  if (cards.length <= 2) {
-      return (
-          <div>
-              <h3>Not enough cards.</h3>
-              <p>You need at least 3 cards to study.  There are {cards.length} cards in this deck.</p>
-              <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary"><span className="oi oi-plus mr-2"></span>Add Cards</Link>
-          </div>
-      )
+  if (cards?.length <= 2) {
+    return (
+      <div>
+        <h3>Not enough cards.</h3>
+        <p>
+          You need at least 3 cards to study. There are {cards.length} cards in
+          this deck.
+        </p>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">
+          <span className="oi oi-plus mr-2"></span>Add Cards
+        </Link>
+      </div>
+    );
   }
 
   //Determines which side of the card is showing
@@ -25,8 +30,9 @@ export default function Card({ cards = [] }) {
   //handles the on flip event
   function handleFlip(event) {
     event.preventDefault();
-    return setCardState(!cardState);
+    setCardState(!cardState);
   }
+
   //handle the next event
   function handleNext(event) {
     event.preventDefault();
@@ -34,7 +40,9 @@ export default function Card({ cards = [] }) {
     if (currentCard + 1 < cards.length) {
       setCurrentCard(currentCard + 1);
     } else {
-      return window.confirm("Restart cards?")
+      window.confirm(
+        "Restart cards? \n \n Click 'cancel' to return to the home page."
+      )
         ? history.go(0)
         : history.push("/");
     }
@@ -44,7 +52,9 @@ export default function Card({ cards = [] }) {
     <div className="card">
       <div className="card-body">
         <div className="card-title">
-          <h4>Card {currentCard + 1} of {cards.length}</h4>
+          <h4>
+            Card {currentCard + 1} of {cards.length}
+          </h4>
         </div>
         <div className="card-text">
           <p>{cardInfo}</p>
@@ -56,12 +66,14 @@ export default function Card({ cards = [] }) {
           >
             Flip
           </button>
-          <button
-            onClick={(event) => handleNext(event)}
-            className="btn btn-primary"
-          >
-            Next
-          </button>
+          {!cardState && (
+            <button
+              onClick={(event) => handleNext(event)}
+              className="btn btn-primary"
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </div>
