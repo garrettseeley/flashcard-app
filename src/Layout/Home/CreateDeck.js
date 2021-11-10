@@ -22,7 +22,7 @@ export default function CreateDeck() {
       <div>
         <h2>Create Deck</h2>
       </div>
-      <DeckForm />
+      <DeckForm isNew={true}/>
     </div>
   );
 }

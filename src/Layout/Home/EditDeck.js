@@ -38,7 +38,12 @@ export default function EditDeck() {
       <div>
         <h2>Edit Deck</h2>
       </div>
-      <DeckForm />
+      <DeckForm
+        isNew={false}
+        editId={deck.id}
+        editDescription={deck.description}
+        editName={deck.name}
+      />
     </div>
   );
 }

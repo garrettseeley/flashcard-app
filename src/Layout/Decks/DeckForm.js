@@ -1,25 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { createDeck } from "../../utils/api";
+import { createDeck, updateDeck } from "../../utils/api";
 
-export default function DeckForm() {
+export default function DeckForm({ editId = "", editDescription = "", editName = "", isNew}) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const history = useHistory();
   const newDeck = { name: name, description: description };
+  const upDeck = { name: name, description: description, id: editId}
 
   const handleNameChange = (event) => setName(event.target.value);
   const handleDescriptionChange = (event) => setDescription(event.target.value);
 
-  const handleSubmit = async function (event) {
+  useEffect(() => {
+      setName(editName);
+      setDescription(editDescription);
+  }, [editName, editDescription])
+
+  const handleCreateSubmit = async function (event) {
     event.preventDefault();
     let response = await createDeck(newDeck);
     history.push(`/decks/${response.id}`);
   };
 
+  const handleUpdateSubmit = async function (event) {
+      event.preventDefault();
+      let response = await updateDeck(upDeck);
+      history.push(`/decks/${response.id}`)
+  }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={isNew ? handleCreateSubmit : handleUpdateSubmit}>
         <div>
           <label htmlFor="name" className="form-label w-100">
             Name
