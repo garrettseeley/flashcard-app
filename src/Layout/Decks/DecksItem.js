@@ -5,6 +5,7 @@ import handleDeleteDeck from "./handleDeleteDeck";
 export default function DecksItem({ deck }) {
   const history = useHistory();
 
+  //simply makes each deck into a list item
   return (
     <li key={deck.id} className="card">
       <div className="row">

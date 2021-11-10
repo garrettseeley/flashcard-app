@@ -7,7 +7,7 @@ import DeckView from "../Decks/DeckView";
 export default function Deck() {
   const { deckId } = useParams();
   const [deck, setDeck] = useState([]);
-
+//sets the deck as a single deck to use
   useEffect(() => {
     const abortController = new AbortController();
     async function singleDeck() {

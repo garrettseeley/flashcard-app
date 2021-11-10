@@ -5,6 +5,7 @@ import handleDeleteCard from "./handleDeleteCard";
 export default function CardItem({ card }) {
   const history = useHistory();
 
+  //simply makes each card into a list item
   return (
     <li key={card.id} className="card">
       <div className="row">
