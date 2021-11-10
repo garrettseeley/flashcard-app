@@ -20,16 +20,16 @@ export default function Study() {
     <div>
       <div className="row">
         <nav aria-label="breadcrumb" className="col">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to="/">
                 <span className="oi oi-home mr-1"></span>Home
               </Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={`/decks/${deckId}`}>{deck.name}</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Study
             </li>
           </ol>

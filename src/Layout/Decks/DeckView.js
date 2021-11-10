@@ -2,40 +2,43 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import handleDeleteDeck from "./handleDeleteDeck";
 
-export default function DecksItem({ deck }) {
+export default function DeckView({ deck }) {
   const history = useHistory();
 
   return (
-    <li key={deck.id} className="card">
-      <div className="row">
-        <h4 className="card-title col m-2">{deck.name}</h4>
-        <p className="col-2 float-right mt-2">{deck.cards.length} cards</p>
+    <div>
+      <div>
+        <h4>{deck.name}</h4>
       </div>
       <div>
-        <p className="card-text m-2">{deck.description}</p>
+        <p>{deck.description}</p>
       </div>
-      <div className="row">
-        <div className="col">
-          <Link to={`/decks/${deck.id}`} className="btn btn-secondary m-2">
-            <span className="oi oi-eye mr-1"></span>
-            View
+      <div>
+        <div>
+          <Link to={`/decks/${deck.id}/edit`} className="btn btn-secondary mr-2">
+            <span className="oi oi-pencil mr-1"></span>
+            Edit
           </Link>
-          <Link to={`/decks/${deck.id}/study`} className="btn btn-primary m-2">
+          <Link to={`/decks/${deck.id}/study`} className="btn btn-primary mr-2">
             <span className="oi oi-book mr-1"></span>
             Study
+          </Link>
+          <Link to={`/decks/${deck.id}/cards/new`} className="btn btn-primary mr-2">
+            <span className="oi oi-plus mr-1"></span>
+            Add Cards
           </Link>
           <button
             className="btn btn-danger float-right m-2"
             onClick={(event) => {
               event.preventDefault();
               handleDeleteDeck(deck.id);
-              history.go(0);
+              history.push("/");
             }}
           >
             <span className="oi oi-trash"></span>
           </button>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
