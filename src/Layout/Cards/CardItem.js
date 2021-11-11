@@ -14,7 +14,7 @@ export default function CardItem({ card }) {
       </div>
       <div>
         <button
-          className="btn btn-danger float-right m-1 mr-1"
+          className="btn btn-danger float-right m-1"
           onClick={(event) => {
             event.preventDefault();
             handleDeleteCard(card.id);
