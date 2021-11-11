@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { readDeck } from "../../utils/api";
-import Card from "../Cards/Card";
+import StudyCards from "../Cards/StudyCards";
 
 export default function Study() {
   const { deckId } = useParams();
@@ -40,7 +40,7 @@ export default function Study() {
         <h2>Study: {deck.name}</h2>
       </div>
       <div>
-          <Card cards={deck.cards} />
+          <StudyCards cards={deck.cards} />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, Link, useParams } from "react-router-dom";
 
-export default function Card({ cards = [] }) {
+export default function StudyCards({ cards = [] }) {
   const [currentCard, setCurrentCard] = useState(0);
   const [cardState, setCardState] = useState(true);
   const history = useHistory();
