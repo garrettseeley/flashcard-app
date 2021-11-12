@@ -42,30 +42,30 @@ export default function DeckForm({
         <div>
           <label htmlFor="name" className="form-label w-100">
             Name
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              placeholder="Deck Name"
-              onChange={handleNameChange}
-              value={name}
-            />
           </label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            placeholder="Deck Name"
+            onChange={handleNameChange}
+            value={name}
+          />
         </div>
         <div>
           <label htmlFor="description" className="form-label w-100">
             Description
-            <textarea
-              className="form-control"
-              type="text"
-              id="description"
-              name="description"
-              placeholder="Brief description of the deck"
-              onChange={handleDescriptionChange}
-              value={description}
-            />
           </label>
+          <textarea
+            className="form-control"
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Brief description of the deck"
+            onChange={handleDescriptionChange}
+            value={description}
+          />
         </div>
         <div>
           <button

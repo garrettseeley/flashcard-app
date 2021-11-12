@@ -46,30 +46,30 @@ export default function CardForm({
         <div>
           <label htmlFor="front" className="form-label w-100">
             Front
-            <textarea
-              type="text"
-              className="form-control"
-              id="front"
-              name="front"
-              placeholder="Front side of card"
-              onChange={handleFrontChange}
-              value={front}
-            />
           </label>
+          <textarea
+            type="text"
+            className="form-control"
+            id="front"
+            name="front"
+            placeholder="Front side of card"
+            onChange={handleFrontChange}
+            value={front}
+          />
         </div>
         <div>
           <label htmlFor="back" className="formlabel w-100">
             Back
-            <textarea
-              type="text"
-              className="form-control"
-              id="back"
-              name="back"
-              placeholder="Back side of card"
-              onChange={handleBackChange}
-              value={back}
-            />
           </label>
+          <textarea
+            type="text"
+            className="form-control"
+            id="back"
+            name="back"
+            placeholder="Back side of card"
+            onChange={handleBackChange}
+            value={back}
+          />
         </div>
         <div>
           <button
