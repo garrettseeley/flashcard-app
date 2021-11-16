@@ -8,10 +8,10 @@ export default function DecksItem({ deck }) {
   //simply makes each deck into a list item
   return (
     <li key={deck.id} className="card">
-      <div className="row">
-        <h4 className="card-title col m-2">{deck.name}</h4>
-        <p className="col-2 float-right mt-2">{deck.cards.length} cards</p>
-      </div>
+      <h4 className="card-title m-2">
+        {deck.name}{" "}
+        <p className="float-right small">{deck.cards.length} cards</p>
+      </h4>
       <div>
         <p className="card-text m-2">{deck.description}</p>
       </div>
